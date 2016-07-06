@@ -21,8 +21,8 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
     // (TODO: actually fetch videos from server instead of pretending)
     $timeout(function afterRetrievingVideos() {
       var _videos = [{
-        title: 'PSY - GANGNAM STYLE (강남스타일) M/V',
-        src: 'https://www.youtube.com/embed/9bZkp7q19f0'
+        title: 'FUNNY BABY VIDEOS',
+        src: 'https://www.youtube.com/embed/_FvTVWjLiHM'
       }, {
         title: 'Justin Bieber - Baby ft. Ludacris',
         src: 'https://www.youtube.com/embed/kffacxfA7G4'
@@ -39,7 +39,7 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
 
     }, 750);
 
-    $scope.submitNewVideo = function() { 
+    $scope.submitNewVideo = function() {
 
       // A little "spin-lock" to prevent double-submission
       // (because disabling the submit button still allows double-posts
@@ -51,12 +51,12 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
       // Harvest the data out of the form
       // (thanks to ng-model, it's already in the $scope dictionary)
       var _newVideo = {
-        title: $scope.newVideoTitle, 
+        title: $scope.newVideoTitle,
         src: $scope.newVideoSrc,
       };
 
       // create placeholder anchor element
-      var parser = document.createElement('a'); 
+      var parser = document.createElement('a');
 
       // assign url to parser.href
       parser.href = _newVideo.src;
@@ -86,7 +86,7 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
 
       // First, show a loading state
       // (also disables form submission)
-      $scope.busySubmittingVideo = true; 
+      $scope.busySubmittingVideo = true;
 
       // Simulate a delay
       $timeout(function() {
@@ -96,7 +96,7 @@ angular.module('brushfire_videosPage').controller('PageCtrl', [
         // Now we know it's the real deal and the server accepted our submission.
 
         // Insert HTML for the newly added video into the DOM
-        $scope.videos.unshift(_newVideo); 
+        $scope.videos.unshift(_newVideo);
 
         // Hide the loading state
         // (also re-enables form submission)
